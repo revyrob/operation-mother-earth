@@ -8,7 +8,7 @@ https://operation-mother-earth.netlify.app/
 ![OME](https://user-images.githubusercontent.com/66695865/218244489-5b230964-c4e4-4bf2-bf20-bde77d25e9c5.png)
 
 ## 🎥 Demo Video
-https://www.loom.com/share/9046597dc37d438191343d1a19f8bcb6
+<a href="https://www.loom.com/share/9046597dc37d438191343d1a19f8bcb6">Video</a>
 
 ## 💻 Built with
 <li>React</li>
