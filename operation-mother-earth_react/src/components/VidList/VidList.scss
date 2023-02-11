@@ -1,0 +1,16 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+
+.vidList {
+    padding-bottom: 4rem;
+    &__title {
+        text-align: center;
+        margin-top: 1rem;
+        background-color: $color-dark-transparent;
+        color: white;
+        padding: .75rem 1.5rem;
+
+    }
+
+}

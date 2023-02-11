@@ -1,0 +1,305 @@
+@use './styles/reset';
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body {
+  font-family: 'Basic', sans-serif;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.homepage{
+   max-width: 450px;
+   max-height: 750px;
+   margin: 0 auto;
+  
+}
+.recycling {
+  max-width: 450px;
+  max-height: 750px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+
+.map__google{
+  align-items: center;
+  border: 2px solid $color-light-sec;
+  height: 50vh;
+  width: 93%;
+  padding: .5rem;
+  margin: 1rem auto;
+  
+}
+
+.questions {
+  max-width: 450px;
+  max-height: 750px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+
+  &__progressBar{
+    margin-top: 10%;
+    width: 90%;
+    
+  }
+  &__text{
+    margin: 10% 0;
+    font-size: 24px;
+    line-height: 35px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    
+  }
+  &__answers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+  }
+  &__btn {
+    padding: .5rem 2rem;
+    font-size: 20px;
+    border-radius: 30px;
+    margin: 1rem 0;
+    background-color: $color-accent-sec;
+    border: 3px solid $color-dark-sec;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: background-color 0.5s;
+
+    
+    &--correct {
+      padding: .5rem 2rem;
+      font-size: 20px;
+      border-radius: 30px;
+      margin: 1rem 0;
+      background-color: $color-dark-sec;
+      border: 6px solid $color-dark-sec;
+      color:$color-accent;
+      transition: background-color 0.5s;
+
+      &:hover {
+        color: white;
+        background-color: $color-dark-sec;
+        transition: background-color 0.5s;
+        
+      }
+    }
+    &--wrong{
+      background-color: red;
+      padding: .5rem 2rem;
+      font-size: 20px;
+      border-radius: 30px;
+      margin: 1rem 0;
+      border: 1px solid $color-dark;
+      &:hover {
+        color: white;
+        background-color: red;
+        
+      }
+    }
+    &:hover {
+      color: white;
+      background-color: $color-dark;
+      transition: background-color 0.5s;
+      
+    }
+  }
+}
+.education {
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+  max-height: 750px;
+  margin: 0 auto;
+ 
+  &__title {
+    font-size: 24px;
+    margin: 0 0 1.5rem;
+    font-family: $font-primary;
+    text-align: center;
+  }
+  &__img {
+    width: 75px;
+    height: 75px;
+    
+    &--div{
+      display: flex;
+      justify-content: space-between;
+ 
+    }
+    &--play {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  &__btn {
+    width: 100%;
+    border: none;
+    background-color: white;
+    padding-top: .5rem;
+  }
+  
+}
+.selected {
+  background-color: $color-dark-transparent;
+  border: none;
+}
+.selectedInfo {
+  display: none;
+}
+
+.locate {
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+  background-color: transparent;
+  border: none;
+  z-index: 10;
+  &__img {
+    width: 30px;
+    cursor: pointer;
+    background-color: none;
+  }
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:80vh;
+}
+
+
+.tree {
+  fill: $color-dark-sec;
+}
+
+.circle-mask {
+  transform-origin: 50% 90%;
+  animation: scale 5s infinite ease-out;
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: scale(0.0);
+  }
+  7%, 90% {
+    transform: scale(0.4);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+.aboutMe {
+  background-color: $color-dark-transparent;
+  color: rgb(62, 62, 62);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  &__info{
+    text-align: center;
+  }
+  &__div {
+    background-color: whitesmoke;
+    border-radius: 15px;
+    padding: 1rem;
+    &--title{
+      text-align: center;
+      text-decoration: underline;
+      color: $color-dark-transparent
+    }
+  }
+  
+}
+.wave {
+  animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;        /* Change to speed up or slow down */
+  animation-iteration-count: infinite;  /* Never stop waving :) */
+  transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+@keyframes wave-animation {
+  0% { transform: rotate( 0.0deg) }
+  10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+  20% { transform: rotate(-8.0deg) }
+  30% { transform: rotate(14.0deg) }
+  40% { transform: rotate(-4.0deg) }
+  50% { transform: rotate(10.0deg) }
+  60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
+}
+
+.game {
+  max-width: 450px;
+  max-height: 750px;
+  margin: 0 auto;
+
+}
+

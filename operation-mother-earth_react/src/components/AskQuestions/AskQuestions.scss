@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+
+.form {
+    max-width: 450px;
+    max-height: 750px;
+    margin: 3rem auto 1rem; 
+    padding: 0 1rem; 
+    &__header {
+        margin-top: 2.5rem;
+        background-color: $color-dark-transparent;
+        color: white;
+    }
+    &__button {
+        background-color: $color-dark-sec;
+        color: white;
+        padding: 0;
+        &:hover {
+            background-color: $color-dark-transparent;
+        color: white;
+        }
+    }
+}

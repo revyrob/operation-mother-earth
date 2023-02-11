@@ -1,0 +1,76 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+
+
+.storyboard {
+    min-height: 80vh;
+    max-width: $tablet-width;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: auto;
+        margin-right: auto;
+  
+    &__img {
+       background-color: $color-light;
+        border-radius: 35px;
+        height: 40vh;
+        
+        &--div {
+            margin: 2rem 0;
+        }
+    }
+    &__text{
+        width: 90%;
+        line-height: 24px;
+        font-size: 20px;
+        margin: 0 2rem;
+    }
+
+}
+.direction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 55%;
+    margin: 1.5rem  auto;
+   
+    &__back {
+        background-color: $color-dark;
+        color:white;
+        border-radius: 5px;
+        padding: .5rem 2rem;
+        text-transform: uppercase;
+        border: none;
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+        
+    }
+    &__forward {
+        background-color: $color-light;
+        color:white;
+        border-radius: 5px;
+        padding: .5rem 2rem;
+        text-transform: uppercase;
+        border: none;
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+    }
+ 
+    &__artist {
+        text-align: center;
+    }
+    &__artistName {
+        margin-top: 5rem;
+        &--name {
+            color: $color-light;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            &:hover{
+                color: $color-light;
+            }
+        }
+    }
+}

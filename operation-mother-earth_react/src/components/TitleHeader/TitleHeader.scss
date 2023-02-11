@@ -1,0 +1,21 @@
+@use '../../styles/variables' as *;
+
+.titleHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 125px;
+    width: 100%;
+    background-color: white;
+    &__title {
+        font-size: 24px;
+        margin: 0 0 1.5rem;
+        font-family: $font-primary;
+        text-align: center;
+    }
+    &__icon {
+        height: 48px;
+        width: 47px;
+    }
+}

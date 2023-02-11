@@ -1,0 +1,30 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.headerChange {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 80px;
+    padding: 1rem 3rem;
+
+    
+    &__img {
+        width: 30px;
+        height: 40px;
+        
+    }
+ 
+    &__other {
+        display:none;
+  
+        
+    }
+    &__other--list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+  
+}
