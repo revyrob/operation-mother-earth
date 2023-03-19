@@ -10,7 +10,7 @@ This section geolocates the client (with their permission).  Geolocation was cho
 Section 3: Education - Videos and Q&A
 The Education section has videos about electronic waste and circular economty (targetting to children).  There are also videos of clearing data off your device so you can safely recycle it, this is targetted towards the parents.  The Education sections also has a Q&A sections with questions and their answers and a form that the client can fill out and add a question, which will be answered later but is posted right away.
 
-## 🚀 Demo
+## 🚀 Deployed site
 https://operation-mother-earth.netlify.app/
 
 ## 📸 Images
@@ -49,4 +49,6 @@ https://operation-mother-earth.netlify.app/
 <li>The added centers are not added to the list, only to the map</li>
 <li>Make a selection at the beginning for the user to choose French or English</li>
 <li>There to be an email to myself and check the centers and the questions before they are added to the app</li>
+<li>The Google Maps is turned off because I am not paying for it</li>
+<li>Test in schools</li>
 
