@@ -1,37 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
-const { uuid } = require("uuidv4");
 const Videos = require("../models/SchemaVideos.js");
 const QA = require("../models/SchemaQA.js");
-
-const videos = "./data/videoData.json";
-
-/*
- *read video.json file
- */
-function readVideoData(callback) {
-  fs.readFile("./data/videoData.json", "utf8", callback);
-}
-
-/*
- *read ewaste questions file
- */
-function readQuestionData(callback) {
-  fs.readFile("./data/ewastequestions.json", "utf8", callback);
-}
-
-/*
- *write the questions to file
- */
-function writeQuestionData(data) {
-  fs.writeFile("./data/ewastequestions.json", data, (err) => {
-    if (err) {
-      console.error(err);
-    }
-    //file written successfully, if no error
-  });
-}
 
 /*
  *Connection to MongoDB

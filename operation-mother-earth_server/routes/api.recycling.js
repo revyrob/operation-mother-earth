@@ -1,32 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-const fs = require("fs");
 const Center = require("../models/SchemaCenters.js");
 
 //create a useEffect and get the map to load after the DOM
 //no search handler
 //but this will reload with geolocation
 const GOOGLE_API = process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-
-/*
- *read from a json file
- */
-function loadCentersData(callback) {
-  fs.readFile("./data/centersData.json", "utf8", callback);
-}
-
-/*
- *write the videos.json file
- */
-function saveCentersData(data) {
-  fs.writeFile("./data/centersData.json", data, (err) => {
-    if (err) {
-      console.error(err);
-    }
-    //file written successfully, if no error
-  });
-}
 
 // / function to get the data from the API
 let getMap = async (lat, lng) => {
