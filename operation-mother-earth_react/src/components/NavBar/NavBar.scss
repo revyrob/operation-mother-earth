@@ -17,7 +17,7 @@
     align-items: center;
     padding: .5rem 0;
     @include tablet {
-      
+      display:none;
     }
   }
   &__img {
