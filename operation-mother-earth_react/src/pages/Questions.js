@@ -35,11 +35,13 @@ function Questions() {
     }
   };
 
+  //function to hand the answer one clicked
   const handleAnswerOptionClick = (isCorrect, points) => {
     let answerTimer;
     let questionTimer;
     setAnswerSelected(true);
     if (isCorrect) {
+      //change state for score if the answer is correct
       setScore(score + points);
     }
 
@@ -59,6 +61,7 @@ function Questions() {
     } else {
       setAnswerCorrect(false);
     }
+
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       if (!questionTimer) {
@@ -70,6 +73,10 @@ function Questions() {
       }
     } else {
       setTimeout(() => setShowScore(true), 300);
+    }
+
+    if (nextQuestion >= questions.length) {
+      setTimeout(() => setAnswerCorrect(false), 300);
     }
   };
 
