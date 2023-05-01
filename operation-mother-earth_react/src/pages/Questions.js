@@ -14,7 +14,7 @@ function Questions() {
   const [_level, setLevel] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
-  const [answerSelected, setAnswerSelected] = useState(false);
+  const [answerSelected, setAnswerSelected] = useState(true);
   const [answerCorrect, setAnswerCorrect] = useState(false);
 
   const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
@@ -37,38 +37,28 @@ function Questions() {
 
   //function to hand the answer one clicked
   const handleAnswerOptionClick = (isCorrect, points) => {
-    let questionTimer;
-    let answerTimer;
+    // let questionTimer;
+    // let answerTimer;
     setAnswerSelected(true);
-    // if (isCorrect) {
-    //   //change state for score if the answer is correct
-    //   setScore(score + points);
-    //   setTimeout(() => setAnswerCorrect(true), 300);
-    //   setAnswerSelected(false);
-    //   console.log(answerCorrect, answerCorrect, points);
-    // } else {
-    //   setTimeout(() => setAnswerCorrect(false), 300);
-    //   setAnswerSelected(false);
-    // }
 
+    //setting the state of answer selected to true and adding points if answerselected is correct
     if (answerSelected === isCorrect) {
       setScore(score + points);
+      setAnswerCorrect(true);
       setAnswerSelected(true);
       setTimeout(() => setAnswerCorrect(false), 300);
-      console.log(answerCorrect, answerCorrect, points);
+      console.log(isCorrect, answerCorrect, answerSelected, points);
+      //else the score stays the same and the answerCorrect state is false
     } else {
+      setScore(score);
       setTimeout(() => setAnswerCorrect(false), 300);
       //setAnswerSelected(false);
     }
+    //varaible for the nextQuestion
     const nextQuestion = currentQuestion + 1;
+    //for if I want to add a timer for each question, which is a future idea
     if (nextQuestion < questions.length) {
-      if (!questionTimer) {
-        questionTimer = setTimeout(() => {
-          setCurrentQuestion(nextQuestion);
-        }, 1000);
-      } else {
-        clearTimeout(questionTimer);
-      }
+      setTimeout(() => setCurrentQuestion(nextQuestion), 300);
     } else {
       setTimeout(() => setShowScore(true), 300);
     }
@@ -133,6 +123,10 @@ function Questions() {
                     className={
                       answerOption.isCorrect && answerSelected && answerCorrect
                         ? "questions__btn--correct"
+                        : !answerOption.isCorrect &&
+                          // answerSelected &&
+                          !answerCorrect
+                        ? "questions__btn--wrong"
                         : "questions__btn"
                     }
                   >
