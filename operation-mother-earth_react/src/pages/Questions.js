@@ -14,7 +14,7 @@ function Questions() {
   const [_level, setLevel] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
-  const [answerSelected, setAnswerSelected] = useState(true);
+  const [answerSelected, setAnswerSelected] = useState(false);
   const [answerCorrect, setAnswerCorrect] = useState(false);
 
   const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
@@ -37,31 +37,29 @@ function Questions() {
 
   //function to hand the answer one clicked
   const handleAnswerOptionClick = (isCorrect, points) => {
-    let answerTimer;
     let questionTimer;
+    let answerTimer;
     setAnswerSelected(true);
-    if (isCorrect) {
-      //change state for score if the answer is correct
-      setScore(score + points);
-    }
+    // if (isCorrect) {
+    //   //change state for score if the answer is correct
+    //   setScore(score + points);
+    //   setTimeout(() => setAnswerCorrect(true), 300);
+    //   setAnswerSelected(false);
+    //   console.log(answerCorrect, answerCorrect, points);
+    // } else {
+    //   setTimeout(() => setAnswerCorrect(false), 300);
+    //   setAnswerSelected(false);
+    // }
 
     if (answerSelected === isCorrect) {
-      answerTimer = setTimeout(() => {
-        setAnswerCorrect(false);
-      }, 200);
-      setAnswerCorrect(true);
-
-      if (!answerTimer) {
-        answerTimer = setTimeout(() => {
-          setAnswerCorrect(false);
-        }, 200);
-      } else {
-        clearTimeout(answerTimer);
-      }
+      setScore(score + points);
+      setAnswerSelected(true);
+      setTimeout(() => setAnswerCorrect(false), 300);
+      console.log(answerCorrect, answerCorrect, points);
     } else {
-      setAnswerCorrect(false);
+      setTimeout(() => setAnswerCorrect(false), 300);
+      //setAnswerSelected(false);
     }
-
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       if (!questionTimer) {
@@ -73,10 +71,6 @@ function Questions() {
       }
     } else {
       setTimeout(() => setShowScore(true), 300);
-    }
-
-    if (nextQuestion >= questions.length) {
-      setTimeout(() => setAnswerCorrect(false), 300);
     }
   };
 
