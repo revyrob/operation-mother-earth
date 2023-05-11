@@ -47,9 +47,6 @@ function RecyclingForm() {
         }
       })
       .catch((err) => console.log(err));
-    // setTimeout(() => {
-    //   refreshPage();
-    // }, "500");
   };
 
   return (
