@@ -73,7 +73,7 @@ function Questions() {
   useEffect(() => {}, [answerSelected]);
 
   return (
-    <>
+    <div className="page">
       <HeaderChange />
       {showScore ? (
         score <= 75 ? (
@@ -138,7 +138,7 @@ function Questions() {
           <NavBar />
         </div>
       )}
-    </>
+    </div>
   );
 }
 export default Questions;
