@@ -86,43 +86,41 @@ function Game() {
   };
 
   return (
-    <>
-      <section className="game">
-        {showStory ? (
-          <>
-            <Storyboard
-              img={`${REACT_APP_API_SERVER_URL}${story[currentStoryboard].image}`}
-              //how to set name in here for first storyboard
-              alt={story[currentStoryboard].alt}
-              text={story[currentStoryboard].text}
-              clickHome={clickHome}
-              clickForward={clickForward}
-              clickBack={clickBack}
-              name={name}
-            />
-          </>
-        ) : (
-          <>
-            <NameGame nameHandler={setNameHandler} />
-            <Modal show={show} onHide={handleShow}>
-              <Modal.Header closeButton>
-                <Modal.Title>Oops!</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>You have not entered a username.</Modal.Body>
-              <Modal.Footer>
-                {/* <Button variant="secondary" onClick={handleClose}>
+    <section className="page">
+      {showStory ? (
+        <>
+          <Storyboard
+            img={`${REACT_APP_API_SERVER_URL}${story[currentStoryboard].image}`}
+            //how to set name in here for first storyboard
+            alt={story[currentStoryboard].alt}
+            text={story[currentStoryboard].text}
+            clickHome={clickHome}
+            clickForward={clickForward}
+            clickBack={clickBack}
+            name={name}
+          />
+        </>
+      ) : (
+        <>
+          <NameGame nameHandler={setNameHandler} />
+          <Modal show={show} onHide={handleShow}>
+            <Modal.Header closeButton>
+              <Modal.Title>Oops!</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>You have not entered a username.</Modal.Body>
+            <Modal.Footer>
+              {/* <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button> */}
-                <Button variant="primary" onClick={handleClose}>
-                  Got it👍
-                </Button>
-              </Modal.Footer>
-            </Modal>
-          </>
-        )}
-        <NavBar />
-      </section>
-    </>
+              <Button variant="primary" onClick={handleClose}>
+                Got it👍
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </>
+      )}
+      <NavBar />
+    </section>
   );
 }
 export default Game;

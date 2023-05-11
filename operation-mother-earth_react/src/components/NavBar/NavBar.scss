@@ -16,9 +16,9 @@
     justify-content: space-around;
     align-items: center;
     padding: .5rem 0;
-    @include tablet {
-      display:none;
-    }
+    // @include tablet {
+    //   display:none;
+    // }
   }
   &__img {
     margin-top: .5rem;

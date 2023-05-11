@@ -60,8 +60,8 @@ a:active {
   text-decoration: none;
 }
 
-.homepage{
-   max-width: tablet;
+.page{
+   max-width: 450px;
    max-height: 750px;
    margin: 0 auto;
   
@@ -80,7 +80,7 @@ a:active {
 .map__google{
   align-items: center;
   border: 2px solid $color-light-sec;
-  height: 50vh;
+  height: 55vh;
   width: 93%;
   padding: .5rem;
   margin: 1rem auto;
