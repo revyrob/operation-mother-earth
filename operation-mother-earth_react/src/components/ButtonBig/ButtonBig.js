@@ -1,6 +1,6 @@
 import "./ButtonBig.scss";
 
-function Button({ img, alt, text }) {
+function Button({ img, alt, text, imgLrg, altLrg }) {
   return (
     <button className="btnBig">
       <img className="btnBig--img" src={img} alt={alt} />

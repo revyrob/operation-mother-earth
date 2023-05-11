@@ -10,6 +10,7 @@ import motherEarth from "../../assets/images/mother-nature.png";
 function Banner() {
   return (
     <section className="banner">
+      <div className="banner__divWrapper-Earth"></div>
       <div className="banner__divWrapper">
         <div className="banner__div--game">
           <Link to={"/game"}>

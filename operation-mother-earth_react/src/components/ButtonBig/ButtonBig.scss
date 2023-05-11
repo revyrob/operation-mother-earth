@@ -1,4 +1,6 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 
 .btnBig {
     width: 300px;
@@ -30,7 +32,6 @@
     &--img {
         width:64px;
         height: 48px;
-
-        
+      
     }
 }

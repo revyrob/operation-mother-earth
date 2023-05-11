@@ -35,39 +35,30 @@ function Questions() {
     }
   };
 
+  //function to hand the answer one clicked
   const handleAnswerOptionClick = (isCorrect, points) => {
-    let answerTimer;
-    let questionTimer;
+    // let questionTimer;
+    // let answerTimer;
     setAnswerSelected(true);
-    if (isCorrect) {
-      setScore(score + points);
-    }
 
+    //setting the state of answer selected to true and adding points if answerselected is correct
     if (answerSelected === isCorrect) {
-      answerTimer = setTimeout(() => {
-        setAnswerCorrect(false);
-      }, 200);
+      setScore(score + points);
       setAnswerCorrect(true);
-
-      if (!answerTimer) {
-        answerTimer = setTimeout(() => {
-          setAnswerCorrect(false);
-        }, 200);
-      } else {
-        clearTimeout(answerTimer);
-      }
+      setAnswerSelected(true);
+      setTimeout(() => setAnswerCorrect(false), 300);
+      console.log(isCorrect, answerCorrect, answerSelected, points);
+      //else the score stays the same and the answerCorrect state is false
     } else {
-      setAnswerCorrect(false);
+      setScore(score);
+      setTimeout(() => setAnswerCorrect(false), 300);
+      //setAnswerSelected(false);
     }
+    //varaible for the nextQuestion
     const nextQuestion = currentQuestion + 1;
+    //for if I want to add a timer for each question, which is a future idea
     if (nextQuestion < questions.length) {
-      if (!questionTimer) {
-        questionTimer = setTimeout(() => {
-          setCurrentQuestion(nextQuestion);
-        }, 1000);
-      } else {
-        clearTimeout(questionTimer);
-      }
+      setTimeout(() => setCurrentQuestion(nextQuestion), 300);
     } else {
       setTimeout(() => setShowScore(true), 300);
     }
@@ -132,6 +123,10 @@ function Questions() {
                     className={
                       answerOption.isCorrect && answerSelected && answerCorrect
                         ? "questions__btn--correct"
+                        : !answerOption.isCorrect &&
+                          // answerSelected &&
+                          !answerCorrect
+                        ? "questions__btn--wrong"
                         : "questions__btn"
                     }
                   >
