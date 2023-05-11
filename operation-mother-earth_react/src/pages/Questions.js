@@ -106,7 +106,7 @@ function Questions() {
           />
         )
       ) : (
-        <div className="homepage">
+        <div className="page">
           <div className="questions__progressBar">
             <Line
               percent={((currentQuestion + 1) / questions.length) * 100}

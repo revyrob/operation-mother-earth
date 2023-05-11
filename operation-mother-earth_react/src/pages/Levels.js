@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar/NavBar";
 function Levels({ nextQueston }) {
   return (
     <>
-      <div className="homepage">
+      <div className="page">
         <Level level={nextQueston} />
         <NavBar />
       </div>
