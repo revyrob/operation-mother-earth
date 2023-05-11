@@ -12,13 +12,13 @@
     align-items: center;
     justify-content: left;
     margin: 1rem 0;
-    @include tablet {
-        display:flex;
-        flex-direction: column;
-        height: 400px;
-        justify-content: center;
-        align-items: center;
-    }
+    // @include tablet {
+    //     display:flex;
+    //     flex-direction: column;
+    //     height: 400px;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
  
     &:hover {
         background-color: $color-dark-sec;
@@ -47,11 +47,11 @@
     }
     &--imgLrg {
         display: none;
-        @include tablet {
-            display: block;
+        // @include tablet {
+        //     display: block;
             
-            padding-bottom: 2rem;
-        }
+        //     padding-bottom: 2rem;
+        // }
 
     }
     &__wrapper {
