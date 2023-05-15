@@ -36,31 +36,33 @@ function Questions() {
 
   //function to hand the answer one clicked
   const handleAnswerOptionClick = (isCorrect, points) => {
-    // let questionTimer;
-    // let answerTimer;
+    //set answer selected to true
     setAnswerSelected(true);
 
-    //setting the state of answer selected to true and adding points if answerselected is correct
+    //answerSeleted isCorrect within the options
     if (answerSelected === isCorrect) {
-      setScore(score + points);
+      //set answerCorrect to true for color
       setAnswerCorrect(true);
-      setAnswerSelected(true);
-      // setTimeout(() => setAnswerCorrect(false), 300);
+      //add points within that answer to score
+      setScore(score + points);
+      console.log(isCorrect, answerCorrect, answerSelected, points);
 
       //else the score stays the same and the answerCorrect state is false
     } else {
+      //score stays the same since answer selected is wrong
       setScore(score);
-      // setTimeout(() => setAnswerCorrect(false), 300);
+      //setTimeout(() => setAnswerCorrect(false), 300);
       //setAnswerSelected(false);
       console.log(isCorrect, answerCorrect, answerSelected, points);
     }
-    setTimeout(() => setAnswerCorrect(false), 300);
 
     //varaible for the nextQuestion
     const nextQuestion = currentQuestion + 1;
     //for if I want to add a timer for each question, which is a future idea
     if (nextQuestion < questions.length) {
       setTimeout(() => setCurrentQuestion(nextQuestion), 300);
+      setTimeout(() => setAnswerCorrect(false), 300);
+      setTimeout(() => setAnswerSelected(false), 300);
     } else {
       setTimeout(() => setShowScore(true), 300);
     }
@@ -123,7 +125,7 @@ function Questions() {
                       )
                     }
                     className={
-                      answerOption.isCorrect && answerSelected && answerCorrect
+                      answerOption.isCorrect && answerCorrect && answerSelected
                         ? "questions__btn--correct"
                         : !answerOption.isCorrect &&
                           !answerCorrect &&
