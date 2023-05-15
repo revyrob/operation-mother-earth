@@ -1,6 +1,5 @@
 import "./Finalokay.scss";
 import img from "../../assets/images/mother-nature-good.png";
-import NavBar from "../NavBar/NavBar";
 import { Link } from "react-router-dom";
 
 function Finalokay({ score, text }) {
@@ -25,7 +24,6 @@ function Finalokay({ score, text }) {
           </Link>
         </div>
       </div>
-      <NavBar />
     </section>
   );
 }

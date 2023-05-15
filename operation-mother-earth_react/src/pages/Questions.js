@@ -45,14 +45,17 @@ function Questions() {
       setScore(score + points);
       setAnswerCorrect(true);
       setAnswerSelected(true);
-      setTimeout(() => setAnswerCorrect(false), 300);
-      console.log(isCorrect, answerCorrect, answerSelected, points);
+      // setTimeout(() => setAnswerCorrect(false), 300);
+
       //else the score stays the same and the answerCorrect state is false
     } else {
       setScore(score);
-      setTimeout(() => setAnswerCorrect(false), 300);
+      // setTimeout(() => setAnswerCorrect(false), 300);
       //setAnswerSelected(false);
+      console.log(isCorrect, answerCorrect, answerSelected, points);
     }
+    setTimeout(() => setAnswerCorrect(false), 300);
+
     //varaible for the nextQuestion
     const nextQuestion = currentQuestion + 1;
     //for if I want to add a timer for each question, which is a future idea
@@ -123,8 +126,8 @@ function Questions() {
                       answerOption.isCorrect && answerSelected && answerCorrect
                         ? "questions__btn--correct"
                         : !answerOption.isCorrect &&
-                          // answerSelected &&
-                          !answerCorrect
+                          !answerCorrect &&
+                          answerSelected
                         ? "questions__btn--wrong"
                         : "questions__btn"
                     }
