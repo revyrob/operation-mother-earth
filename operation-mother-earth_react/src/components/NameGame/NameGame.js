@@ -3,12 +3,10 @@ import game from "../../assets/icons/game-icon.svg";
 import namePic from "../../assets/images/mother-name.png";
 import TitleHeader from "../TitleHeader/TitleHeader";
 import forward from "../../assets/icons/earth-forward-icon.png";
-import HeaderChange from "../HeaderChange/HeaderChange";
 
 function NameGame({ nameHandler }) {
   return (
     <>
-      <HeaderChange />
       <section className="namegame">
         <TitleHeader
           img={game}

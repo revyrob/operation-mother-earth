@@ -4,7 +4,6 @@ import { useState } from "react";
 import EducationRead from "../components/EducationRead/EducationRead";
 import EducationPlay from "../components/EducationPlay/EducationPlay";
 import NavBar from "../components/NavBar/NavBar";
-import HeaderChange from "../components/HeaderChange/HeaderChange";
 
 function Education() {
   const [selected, setSelected] = useState(false);
@@ -15,7 +14,7 @@ function Education() {
 
   return (
     <>
-      <HeaderChange />
+      <NavBar />
       <section className="education">
         <h1 className="education__title">Education</h1>
         <div className="education__img--div">
@@ -34,7 +33,6 @@ function Education() {
         </div>
         <EducationRead toggleClass={!selected ? "" : "selectedInfo"} />
         <EducationPlay toggleClass={selected ? "" : "selectedInfo"} />
-        <NavBar />
       </section>
     </>
   );

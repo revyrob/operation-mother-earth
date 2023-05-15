@@ -5,8 +5,8 @@ function Levels({ nextQueston }) {
   return (
     <>
       <div className="page">
-        <Level level={nextQueston} />
         <NavBar />
+        <Level level={nextQueston} />
       </div>
     </>
   );

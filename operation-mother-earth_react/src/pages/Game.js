@@ -87,6 +87,8 @@ function Game() {
 
   return (
     <section className="page">
+      <NavBar />
+
       {showStory ? (
         <>
           <Storyboard
@@ -119,7 +121,6 @@ function Game() {
           </Modal>
         </>
       )}
-      <NavBar />
     </section>
   );
 }

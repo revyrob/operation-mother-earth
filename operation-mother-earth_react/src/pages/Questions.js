@@ -4,7 +4,6 @@ import { Line } from "rc-progress";
 import { v4 as uuidv4 } from "uuid";
 import Finalokay from "../components/Finalokay/Finalokay";
 import NavBar from "../components/NavBar/NavBar";
-import HeaderChange from "../components/HeaderChange/HeaderChange";
 
 function Questions() {
   //use sessions storage for level
@@ -74,7 +73,7 @@ function Questions() {
 
   return (
     <div className="page">
-      <HeaderChange />
+      <NavBar />
       {showScore ? (
         score <= 75 ? (
           <Finalokay
@@ -135,7 +134,6 @@ function Questions() {
                 ))}
             </div>
           </div>
-          <NavBar />
         </div>
       )}
     </div>

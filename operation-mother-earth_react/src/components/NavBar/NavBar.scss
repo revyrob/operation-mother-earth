@@ -2,6 +2,14 @@
 @use "../../styles/mixins" as *;
 
 .nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 470px;
+  height: 80px;
+  left: 50%;
+  margin: 0 auto;
   &__style {
     max-width: tablet;
     margin: 0 auto;
@@ -9,7 +17,7 @@
     color: white;
     border-top: 1px solid black;
     position: fixed;
-    bottom: 0;
+    top: 0;
     height: 55px;
     width: 100%;
     display: flex;
@@ -24,11 +32,7 @@
     margin-top: .5rem;
     height: 25px;
     width: 25px;
-   
-    // &:hover {
-    //   border-radius: 50%;
-    //   background-image: radial-gradient(white, green);
-    // }
+  
   }
   &__div{
     display: flex;
@@ -39,6 +43,7 @@
   }
   &__link {
     width: 25%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
