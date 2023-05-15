@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "./QuestionList.scss";
 import plus from "../../assets/images/plus-btn.svg";
+import Btn from "../Btn/Btn";
 
 function QuestionList({ questions }) {
   const [isShown, setIsShown] = useState(false);
@@ -25,6 +26,7 @@ function QuestionList({ questions }) {
           />{" "}
           to reveal the answer
         </p>
+        <Btn link={"/education#ask"} text1={"+ Add Question"} />
       </div>
       <ul className="questionList__list">
         {questions &&

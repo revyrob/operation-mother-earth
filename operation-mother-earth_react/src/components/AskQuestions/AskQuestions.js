@@ -66,7 +66,10 @@ function AskQuestions() {
   return (
     <>
       <QuestionList questions={questions} />
-      <h1 className="form__header">Ask an E-waste Question</h1>
+      <h1 className="form__header" id="ask">
+        Ask an E-waste Question
+      </h1>
+
       <Formik
         initialValues={{ question: "" }}
         onSubmit={async (values) => {
@@ -74,7 +77,7 @@ function AskQuestions() {
           alert(JSON.stringify(values, null, 2));
         }}
       >
-        <Form className="form" method="post" onSubmit={handleComment}>
+        <Form className="form" method="post" onSubmit={handleComment} id="ask">
           <div className="form__form">
             <TextField
               name="question"
