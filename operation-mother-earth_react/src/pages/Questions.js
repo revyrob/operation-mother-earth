@@ -13,7 +13,7 @@ function Questions() {
   const [_level, setLevel] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
-  const [answerSelected, setAnswerSelected] = useState(true);
+  const [answerSelected, setAnswerSelected] = useState(false);
   const [answerCorrect, setAnswerCorrect] = useState(false);
 
   const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
@@ -36,22 +36,31 @@ function Questions() {
 
   //function to hand the answer one clicked
   const handleAnswerOptionClick = (isCorrect, points) => {
-    // let questionTimer;
-    // let answerTimer;
-    setAnswerSelected(true);
-
-    //setting the state of answer selected to true and adding points if answerselected is correct
-    if (answerSelected === isCorrect) {
+    //set answer selected is correct
+    if (answerSelected === !isCorrect) {
+      setAnswerSelected(true);
       setScore(score + points);
       setAnswerCorrect(true);
+      // console.log(
+      //   "answer is correct " + isCorrect,
+      //   answerCorrect,
+      //   answerSelected,
+      //   points
+      // );
+      setTimeout(() => setAnswerSelected(false), 300);
+
+      //set answer selected isn't correct
+    } else if (answerSelected === isCorrect) {
       setAnswerSelected(true);
-      setTimeout(() => setAnswerCorrect(false), 300);
-      console.log(isCorrect, answerCorrect, answerSelected, points);
-      //else the score stays the same and the answerCorrect state is false
-    } else {
       setScore(score);
-      setTimeout(() => setAnswerCorrect(false), 300);
-      //setAnswerSelected(false);
+      setAnswerCorrect(false);
+      // console.log(
+      //   "answer is not correct " + isCorrect,
+      //   answerCorrect,
+      //   answerSelected,
+      //   points
+      // );
+      setTimeout(() => setAnswerSelected(false), 300);
     }
     //varaible for the nextQuestion
     const nextQuestion = currentQuestion + 1;
@@ -67,9 +76,9 @@ function Questions() {
     getQuestions();
     getLevel();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [answerSelected]);
 
-  useEffect(() => {}, [answerSelected]);
+  //useEffect(() => {}, [answerSelected]);
 
   return (
     <div className="page">
@@ -78,14 +87,14 @@ function Questions() {
         score <= 75 ? (
           <Finalokay
             score={score}
-            text={
-              "It means that the robots are okay but could use another update. Try the game again."
-            }
+            text={"It means the robots still need help. Try the game again."}
           />
         ) : score <= 120 ? (
           <Finalokay
             score={score}
-            text={"It means the robots still need help. Try the game again."}
+            text={
+              "It means that the robots are okay but could use another update. Try the game again."
+            }
           />
         ) : (
           <Finalokay
@@ -120,12 +129,16 @@ function Questions() {
                       )
                     }
                     className={
-                      answerOption.isCorrect && answerSelected && answerCorrect
+                      answerOption.isCorrect && answerCorrect && answerSelected
                         ? "questions__btn--correct"
                         : !answerOption.isCorrect &&
-                          // answerSelected &&
+                          answerSelected &&
                           !answerCorrect
                         ? "questions__btn--wrong"
+                        : !answerSelected &&
+                          !answerOption.isCorrect &&
+                          !answerCorrect
+                        ? "questions__btn"
                         : "questions__btn"
                     }
                   >
